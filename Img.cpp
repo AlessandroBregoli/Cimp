@@ -1,4 +1,5 @@
 #include "Img.h"
+#include <stdio.h>
 Img::Img(int h, int w, char* path, int cn){
 	this->h = h;
 	this->w = w;
@@ -33,7 +34,7 @@ int Img::caricaIMG(){
 			}
 		}
 	}
-	free(buff);
+	delete(buff);
 	fclose(f);
 	return 0;
 }
@@ -59,7 +60,7 @@ int Img::salvaIMG(){
 			return -4;
 		}
 	}
-	free(buff);
+	delete(buff);
 	fclose(f);
 	return 0;
 }
@@ -96,8 +97,8 @@ Img* Img::applicaMatrice(int* mtx,int h, int w, int divisore){
 					for(int x = 0; x < w; x ++){
 						int yi = i - (h/2-y);
 						int xi = j - (w/2-x);
-						yi = yi <0 ? 0 : y >= this->h? this->h -1 : yi;
-						xi = xi <0 ? 0 : x >= this->w? this->w -1 : xi;
+						yi = yi <0 ? 0 : yi >= this->h? this->h -1 : yi;
+						xi = xi <0 ? 0 : xi >= this->w? this->w -1 : xi;
 						tmp += *(*this)(yi,xi,k) * mtx[y*w+x];
 					}
 				}
