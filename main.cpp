@@ -22,8 +22,8 @@ int main(int argc, char* argv[]){
 	if(tmp < 0){
 		return tmp;
 	}
-	int m[] = {0,-1,0,-1,5,-1,0,-1,0};
-	Img* img = i.scalaGrigi()->applicaMatrice(m,3,3,1);
+	int m[] = {1,2,1,2,4,2,1,2,1};
+	Img* img = i.scalaGrigi()->applicaMatrice(m,3,3,16);
 	img->path="out.data";
 	img->salvaIMG();
 	delete(img);	
