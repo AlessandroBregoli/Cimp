@@ -24,9 +24,11 @@ int main(int argc, char* argv[]){
 	}
 	int m[] = {0,-1,0,-1,5,-1,0,-1,0};
 	int m1[] = {1,2,1,2,4,2,1,2,1};
-	Img* img = i.scalaGrigi()->applicaMatrice(m1,3,3,16)->applicaMatrice(m,3,3,1);
+	int m2[] = {0,2,0};
+	Img* img = i.equalizza();
 	img->path="out.data";
 	img->salvaIMG();
 	delete(img);	
 	return 0;
 }
+

@@ -13,4 +13,6 @@ class Img{
 	unsigned char* operator()(int y, int x, int cn1);
 	Img* applicaMatrice(int* mtx,int h, int w, int divisore);
 	Img* scalaGrigi();
+	Img* stretch();
+	Img* equalizza();
 };
