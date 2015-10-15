@@ -155,13 +155,21 @@ Img* Img::equalizza(){
 			for(int i = 1; i < 256; i++){
 				istogramma[i] = istogramma[i-1] + istogramma[i];
 			}
+			for(int i = 0; i<256;i++){
+				istogramma[i] = istogramma[i]*255/istogramma[255];
+			}
 			//rimappo l'immagine con i nuovi colori
 			for(int i = 0; i < this->h; i++){
 				for(int j = 0; j < this->w; j++){
-					*(*img)(i,j,k) = istogramma[*(*this)(i,j,k)]*255/istogramma[255];
+					*(*img)(i,j,k) = istogramma[*(*this)(i,j,k)];
 				}
 			}
 			
 		}
 		return img;
 }
+
+
+
+
+
