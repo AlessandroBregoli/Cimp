@@ -1,3 +1,7 @@
+#ifndef CIAO
+#include <iostream>
+#define CIAO 1
+using namespace std;
 class Img{
 	private:
 	int h; //altezza
@@ -5,10 +9,10 @@ class Img{
 	int cn; //canali
 	unsigned char* img;
 	public:
-	char* path;
+	string path;
 	int caricaIMG();	
 	int salvaIMG();
-	Img(int h, int w, char* path, int cn);
+	Img(int h, int w, string path, int cn);
 	~Img();
 	unsigned char* operator()(int y, int x, int cn1);
 	Img* applicaMatrice(int* mtx,int h, int w, int divisore);
@@ -16,3 +20,4 @@ class Img{
 	Img* stretch();
 	Img* equalizza();
 };
+#endif
