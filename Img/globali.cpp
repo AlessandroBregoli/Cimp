@@ -80,22 +80,24 @@ Img* Img::greyWorld(){
 	{
 		mean[k]/=this->h*this->w;
 		tot_mean += mean[k];
+		printf("%d,%d\n",k,mean[k]);
 	}
 	tot_mean /= this->cn;
-	float mean2[this->cn];
+	/*float mean2[this->cn];
 	for (unsigned int k = 0; k < this->cn; k += 1)
 	{
 		mean2[k] = (float)mean[k] / tot_mean;
 		printf("%d,%d", k, mean2[k]);
-	}
+	}*/
 	for (unsigned int i = 0; i < this->h; i += 1)
 	{
 		for (unsigned int j = 0; j < this->w; j += 1)
 		{
 			for (unsigned int k = 0; k < this->cn; k += 1)
 			{
-				unsigned char new_val  = CLIP(*(*this)(i,j,k) * mean2[k]);
-				*(*img)(i,j,k) = new_val;
+				unsigned int new_val = *(*this)(i,j,k);
+				new_val = new_val * mean[k] / tot_mean;
+				*(*img)(i,j,k) = CLIP(new_val);
 			}
 		}
 	}
