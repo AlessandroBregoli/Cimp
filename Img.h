@@ -19,5 +19,6 @@ class Img{
 	Img* scalaGrigi();
 	Img* stretch();
 	Img* equalizza();
+	Img* greyWorld();
 };
 #endif
