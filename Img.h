@@ -13,6 +13,7 @@ class Img{
 	int caricaIMG();	
 	int salvaIMG();
 	Img(int h, int w, string path, int cn);
+	Img(string path);
 	~Img();
 	unsigned char* operator()(int y, int x, int cn1);
 	Img* applicaMatrice(int* mtx,int h, int w, int divisore);
@@ -20,5 +21,7 @@ class Img{
 	Img* stretch();
 	Img* equalizza();
 	Img* greyWorld();
+	Img* mediana(int, int);
+	void salvaBMP(string path);
 };
 #endif

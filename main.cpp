@@ -1,3 +1,4 @@
+//g++ -g main.cpp -lSDL -lSDL_image -I/usr/include/SDL
 #include <stdio.h>
 #include <errno.h>
 #include <stdlib.h>
@@ -5,7 +6,7 @@
 
 #include "Img.cpp"
 int main(int argc, char* argv[]){
-	if(argc < 4){
+	/*if(argc < 4){
 		printf("Serve il nome del file seguito da altezza e larghezza\n");
 		return -1; 
 	}
@@ -29,6 +30,18 @@ int main(int argc, char* argv[]){
 	img->path="out.data";
 	img->salvaIMG();
 	delete(img);	
-	return 0;
+	return 0;*/
+	if (argc < 2)
+	{
+		printf("metti nome file");
+		return -1;
+	}
+	Img i(argv[1]);
+	int m1[] = {1,2,1,2,4,2,1,2,1};
+	int m[] = {0,-1,0,-1,5,-1,0,-1,0};
+	Img* corretta = i.mediana(3,3);
+	corretta->salvaBMP("io.bmp");
+	corretta->path = "io.data";
+	corretta->salvaIMG();
 }
 
